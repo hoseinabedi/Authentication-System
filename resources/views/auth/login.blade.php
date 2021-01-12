@@ -10,7 +10,8 @@
                   @lang('theme.user register')
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('auth.login.form') }}" method="post">
+                    <form action="{{ route('auth.login') }}" method="post">
+                        @csrf
                         <div class="form-group">
                           <label for="email">@lang('theme.email address')</label>
                           <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="@lang('theme.email')">

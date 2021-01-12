@@ -8,10 +8,10 @@
             <li class="nav-item @if (Route::currentRouteName() == 'home') active @endif">
                 <a class="nav-link" href="#">@lang('theme.home') <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item @if (Route::currentRouteName() == 'auth.login') active @endif">
+            <li class="nav-item @if (Route::currentRouteName() == 'auth.login.form') active @endif">
                 <a class="nav-link" href="{{ route('auth.login') }}">@lang('theme.login')</a>
             </li>
-            <li class="nav-item @if (Route::currentRouteName() == 'auth.register') active @endif">
+            <li class="nav-item @if (Route::currentRouteName() == 'auth.register.form') active @endif">
                 <a class="nav-link" href="{{ route('auth.register') }}">@lang('theme.register')</a>
             </li>
             <li class="nav-item">

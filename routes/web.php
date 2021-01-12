@@ -21,8 +21,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::name('auth.')->group(function (){
-    Route::get('/login',[LoginController::class,'index'])->name('login');
-    Route::get('/login/check',[LoginController::class,'login'])->name('login.form');
-    Route::get('/register',[RegisterController::class,'index'])->name('register');
+    Route::get('/login',[LoginController::class,'index'])->name('login.form');
+    Route::post('/login',[LoginController::class,'login'])->name('login');
+    Route::get('/register',[RegisterController::class,'index'])->name('register.form');
+    Route::post('/register',[RegisterController::class,'register'])->name('register');
 });
 

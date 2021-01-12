@@ -8,7 +8,8 @@
                     @lang('theme.user register')
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('home') }}" method="post">
+                    <form action="{{ route('auth.register') }}" method="post">
+                        @csrf
                         <div class="form-group">
                             <label for="name">@lang('theme.user name')</label>
                             <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="@lang('theme.user name')">
@@ -29,11 +30,12 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="@lang('theme.password')">
                         </div>
                         <div class="form-group">
-                            <label for="re-password">@lang('theme.confirm password')</label>
-                            <input type="password" class="form-control" id="re-password" name="re-password" placeholder="@lang('theme.confirm password')">
+                            <label for="password_confirmation">@lang('theme.confirm password')</label>
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="@lang('theme.confirm password')">
                         </div>
                         <button type="submit" class="btn btn-primary">@lang('theme.register')</button>
                       </form>
+                      @include('partials.validation-errors')
                 </div>
               </div>
         </div>

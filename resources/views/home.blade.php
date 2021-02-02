@@ -3,6 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12" style="padding: 40px;">
+            @include('partials.alerts')
             <h1>به وب ویت خوش آمدید</h1>
         </div>
     </div>

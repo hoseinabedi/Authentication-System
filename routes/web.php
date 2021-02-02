@@ -23,7 +23,11 @@ Route::get('/', function () {
 Route::name('auth.')->group(function (){
     Route::get('/login',[LoginController::class,'index'])->name('login.form');
     Route::post('/login',[LoginController::class,'login'])->name('login');
+    // Route::post('/login',['before' => 'throttle:2,60', 'uses' => 'LoginController@login'])->name('login');
     Route::get('/register',[RegisterController::class,'index'])->name('register.form');
     Route::post('/register',[RegisterController::class,'register'])->name('register');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/profile',[LoginController::class,'profile'])->name('profile')->middleware('logincheck');
 });
+
 

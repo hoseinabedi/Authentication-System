@@ -6,20 +6,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" style="margin-right: 0 !important;">
             <li class="nav-item @if (Route::currentRouteName() == 'home') active @endif">
-                <a class="nav-link" href="#">@lang('theme.home') <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('home') }}">@lang('theme.home') <span class="sr-only">(current)</span></a>
             </li>
+            @guest
             <li class="nav-item @if (Route::currentRouteName() == 'auth.login.form') active @endif">
                 <a class="nav-link" href="{{ route('auth.login') }}">@lang('theme.login')</a>
             </li>
             <li class="nav-item @if (Route::currentRouteName() == 'auth.register.form') active @endif">
                 <a class="nav-link" href="{{ route('auth.register') }}">@lang('theme.register')</a>
             </li>
+            @endguest
+            @auth
             <li class="nav-item">
-                <a class="nav-link" href="#">@lang('theme.profile')</a>
+                <a class="nav-link" href="{{ route('auth.profile') }}">{{Auth::user()->name}} (@lang('theme.profile'))</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">@lang('theme.logout')</a>
+                <a class="nav-link" href="{{ route('auth.logout') }}">@lang('theme.logout')</a>
             </li>
+            @endauth
             {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown
